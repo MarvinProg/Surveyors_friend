@@ -1,0 +1,40 @@
+<h2>Разомкнутый ход, создание точек: </h2>
+<%# <p>Описание: ...</p> %>
+<br />
+
+<%= form_for :opened_move, url: {action: "create"} do |form| %>
+  <% if @opened_move && @opened_move.errors.any? %>
+    <p>
+      <ul>
+        <% @opened_move.errors.full_messages.each do |message_string| %>
+          <li><%= message_string %></li>
+        <% end %>
+      </ul>
+    </p>
+  <% end %>
+  <br />
+
+  <p>
+    <%# <span>Title: </span><br> %>
+    <%= form.label :number_first_poin %><br>
+    <%= form.text_field :number_first_poin %><br>
+    <%= form.label :x_coordinate_first_point %><br>
+    <%= form.text_field :x_coordinate_first_point %><br>
+    <%= form.label :y_coordinate_first_point %><br>
+    <%= form.text_field :y_coordinate_first_point %><br>
+  </p>
+  <p>
+    <%= form.label :number_second_poin %><br>
+    <%= form.text_field :number_second_poin %><br>
+    <%= form.label :x_coordinate_second_point %><br>
+    <%= form.text_field :x_coordinate_second_point %><br>
+    <%= form.label :y_coordinate_second_point %><br>
+    <%= form.text_field :y_coordinate_second_point %><br>
+  </p>
+  <%= form.submit("Save") %>
+<% end %>
+<br />
+
+<%= link_to "Index", opened_move_index_url %> |
+<%# <%= link_to "Edit", edit_article_path(article) %> |
+<%# <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }  %> %>

@@ -1,3 +1,30 @@
-<h2>Разомкнутый ход</h2>
-<p>Описание: ...</p>
-<br />
+<h2>Разомкнутый ход, список точек:</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">number_first_poin</th>
+      <th scope="col">x_coordinate_first_point</th>
+      <th scope="col">y_coordinate_first_point</th>
+      <th scope="col">number_second_poin</th>
+      <th scope="col">x_coordinate_second_point</th>
+      <th scope="col">y_coordinate_second_point</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @opened_move.each do |opened_move| %>
+        <tr>
+          <td><%= opened_move['id'] %></td> 
+          <td><%= opened_move['number_first_poin'] %></td> 
+          <td><%= opened_move['x_coordinate_first_point'] %></td> 
+          <td><%= opened_move['y_coordinate_first_point'] %></td>  
+          <td><%= opened_move['number_second_poin'] %></td> 
+          <td><%= opened_move['x_coordinate_second_point'] %></td> 
+          <td><%= opened_move['y_coordinate_second_point'] %></td> 
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New", new_opened_move_path(@opened_move) %> |
+<%= link_to "Delete all", opened_move_path(@opened_move), method: :delete, data: { confirm: "Are you sure?" }  %>
